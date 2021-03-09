@@ -1,0 +1,25 @@
+.contenedor {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    width: 100%;
+    padding: 15px;
+    
+}
+* {
+    box-sizing: border-box;
+}
+.button{
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background:  #6f0404;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover{
+    background: cadetblue;
+}
+
+
