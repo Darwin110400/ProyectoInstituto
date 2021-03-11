@@ -8,8 +8,9 @@ form.addEventListener('submit', e => {
 	e.preventDefault();
 	
 	checkInputs();
+        registrarUsuario();
 });
-
+	
 function checkInputs() {
 	// trim to remove the whitespaces
 	const usernameValue = username.value.trim();
@@ -38,9 +39,9 @@ function checkInputs() {
 	}
 	
 	if(password2Value === '') {
-		setErrorFor(password2, 'La contraseña2 no puede estar en blanco');
+		setErrorFor(password2, 'La contraseña 2 no puede estar en blanco');
 	} else if(passwordValue !== password2Value) {
-		setErrorFor(password2, 'Contraseñas no se parecen');
+		setErrorFor(password2, 'Contraseñas no son identicas');
 	} else{
 		setSuccessFor(password2);
 	}
@@ -61,6 +62,32 @@ function setSuccessFor(input) {
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
+
+function registrarUsuario(){
+
+	$("#btnRegistrar").prop("disabled",true);
+	var formData = new FormData($("#form")[0]);
+
+	$.ajax({
+		url: "../ajax/usuario.php?op=registrarUsuario",
+	    type: "POST",
+	    data: formData,
+	    contentType: false,
+	    processData: false,
+
+	    success: function(datos)
+	    {        
+               confirm(datos);
+              window.location.href=('../login.html');
+	          mostrarform(false);
+	         
+	    }
+
+	});
+	limpiar();
+}
+
+
 
 
 

@@ -7,7 +7,8 @@ function init(){
 
 	$("#formulario").on("submit",function(e)
 	{
-		guardaryeditar(e);	
+		guardaryeditar(e);
+                
 	})
 
 	$("#imagenmuestra").hide();
@@ -113,6 +114,8 @@ function guardaryeditar(e)
 	});
 	limpiar();
 }
+
+
 
 function mostrar(idusuario)
 {

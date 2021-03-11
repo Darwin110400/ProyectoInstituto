@@ -97,6 +97,12 @@ Class Usuario
     	$sql="SELECT idusuario,nombre,tipo_documento,num_documento,telefono,email,cargo,imagen,login FROM usuario WHERE login='$login' AND clave='$clave' AND condicion='1'"; 
     	return ejecutarConsulta($sql);  
     }
-        
+    
+    public function insertarUsuario($nombre,$tipo_documento,$num_documento,$login,$email,$clave)
+	{
+		$sql="INSERT INTO usuario (nombre,tipo_documento,num_documento,login,email,clave,condicion)
+		VALUES ('$nombre','$tipo_documento','$num_documento',$login','$email','$clave',1')";
+		return ejecutarConsulta($sql);
+	}       
 
 }

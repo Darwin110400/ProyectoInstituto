@@ -60,7 +60,16 @@ switch ($_GET["op"]){
 			//echo $rspta ? "Debe cerrar sesión para que loc cambios tengan efecto "  : "Usuario no se pudo actualizar";
 		}
 	break;
-
+        
+        case'registrarUsuario':
+            
+       
+            $rspta=$usuario->insertarUsuario($nombre,$tipo_documento,$num_documento,$email,$login,$clave);
+            echo $rspta ? "Usuario Registrado" : "Usuario no se pudo registrar";    
+            
+            
+        break;
+    
 	case 'desactivar':
 		$rspta=$usuario->desactivar($idusuario);
  		echo $rspta ? "Usuario Desactivado" : "Usuario no se puede desactivar";
